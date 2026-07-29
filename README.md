@@ -1,1 +1,1 @@
-A UI-focused creative developer portfolio featuring interactive 3D visuals, clean design, and dynamic content powered by Supabase. Built with React, Tailwind CSS, and Three.js, and deployed on Vercel.
+Designed and deployed a responsive portfolio website using React.js, Tailwind CSS, Three.js, and Supabase to showcase projects, technical skills, and interactive UI components.

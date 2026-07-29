@@ -95,10 +95,30 @@ function ProjectRow({ project, index }) {
                 {project.description}
               </p>
               <div style={{ display: 'flex', gap: '1.5rem', flexShrink: 0 }}>
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noreferrer" className="link-under"
-                    style={{ fontFamily: 'var(--mono)', fontSize: '0.63rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)' }}>
-                    GitHub ↗
+
+                {project.github_frontend && (
+                  <a
+                    href={project.github_frontend}
+                    style={{ fontFamily: 'var(--mono)', fontSize: '0.63rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)' }}
+
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link-under"
+                  >
+                    Frontend ↗
+                  </a>
+                )}
+
+                {project.github_backend && (
+                  <a
+                    href={project.github_backend}
+                    style={{ fontFamily: 'var(--mono)', fontSize: '0.63rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)' }}
+
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link-under"
+                  >
+                    Backend ↗
                   </a>
                 )}
                 {project.live && (

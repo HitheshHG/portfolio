@@ -2,10 +2,19 @@ import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 const NAV = [
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
 ]
+const scrollToSection = (id) => {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+
+  // Remove any hash from the URL
+  window.history.replaceState(null, "", window.location.pathname);
+};
 
 export default function Header() {
   const { scrollYProgress } = useScroll()
@@ -45,19 +54,30 @@ export default function Header() {
           fontFamily: 'var(--mono)',
         }}
       >
-        <a href="#hero" style={{
-          fontFamily: 'var(--display)', fontWeight: 800,
-          fontSize: 'clamp(1rem,2.5vw,1.15rem)', letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-        }}>
+
+        <a
+          href="/"
+
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("hero");
+          }}
+          style={{
+            fontFamily: 'var(--display)', fontWeight: 800,
+            fontSize: 'clamp(1rem,2.5vw,1.15rem)', letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+          }}
+        >
           Hithesh
         </a>
 
         {/* Desktop nav */}
         <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}
           className="desktop-nav">
-          {NAV.map(({ href, label }) => (
-            <NavLink key={href} href={href}>{label}</NavLink>
+          {NAV.map(({ id, label }) => (
+            <NavLink key={id} id={id}>
+              {label}
+            </NavLink>
           ))}
           <HireBtn />
         </nav>
@@ -93,13 +113,23 @@ export default function Header() {
             padding: '2rem 1.25rem', display: 'flex', flexDirection: 'column', gap: '1.5rem',
           }}
         >
-          {NAV.map(({ href, label }) => (
-            <a key={href} href={href}
-              onClick={() => setMenuOpen(false)}
+          {NAV.map(({ id, label }) => (
+            <a
+              key={id}
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(id);
+                setMenuOpen(false);
+              }}
               style={{
-                fontFamily: 'var(--mono)', fontSize: '0.75rem',
-                letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted)',
-              }}>
+                fontFamily: 'var(--mono)',
+                fontSize: '0.75rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+              }}
+            >
               {label}
             </a>
           ))}
@@ -117,20 +147,29 @@ export default function Header() {
   )
 }
 
-function NavLink({ href, children }) {
+function NavLink({ id, children }) {
   return (
-    <a href={href} className="link-under" style={{
-      fontSize: '0.7rem', letterSpacing: '0.16em',
-      textTransform: 'uppercase', color: 'var(--muted)',
-      transition: 'color .2s',
-    }}
+    <a
+      href="/"
+      onClick={(e) => {
+        e.preventDefault();
+        scrollToSection(id);
+      }}
+      className="link-under"
+      style={{
+        fontSize: '0.7rem',
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        color: 'var(--muted)',
+        transition: 'color .2s',
+      }}
       onMouseEnter={e => e.currentTarget.style.color = 'var(--text)'}
-      onMouseLeave={e => e.currentTarget.style.color = 'var(--muted)'}>
+      onMouseLeave={e => e.currentTarget.style.color = 'var(--muted)'}
+    >
       {children}
     </a>
   )
 }
-
 function HireBtn() {
   return (
     <a href="/resume.pdf" style={{

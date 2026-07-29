@@ -18,7 +18,6 @@ export default function App() {
         <Projects />
         <Contact />
       </main>
-      <Footer />
     </ScrollProvider>
   )
 }

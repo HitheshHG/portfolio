@@ -5,15 +5,15 @@ import { Github, Linkedin } from 'lucide-react'
 const EMAIL = 'gurudattajr@gmail.com'
 
 const SOCIALS = [
-  { href: 'https://github.com/hitheshhg',    Icon: Github,   label: 'GitHub'     },
-  { href: 'https://linkedin.com/in/hitheshhg', Icon: Linkedin, label: 'LinkedIn'   },
-  { href: 'https://x.com/hitheshhg',          Icon: null,     label: 'X / Twitter' },
+  { href: 'https://github.com/hitheshhg', Icon: Github, label: 'GitHub' },
+  { href: 'https://linkedin.com/in/hitheshhg', Icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://x.com/hitheshhg', Icon: null, label: 'X / Twitter' },
 ]
 
 const FONT_SIZE = 'clamp(3rem, 11vw, 11rem)'
 
 function BigWord({ word, delay, color = 'var(--text)' }) {
-  const ref    = useRef(null)
+  const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
@@ -40,7 +40,7 @@ function BigWord({ word, delay, color = 'var(--text)' }) {
 }
 
 export default function Contact() {
-  const ref    = useRef(null)
+  const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
@@ -64,7 +64,7 @@ export default function Contact() {
         </motion.p>
 
         <div style={{ marginBottom: '3rem' }}>
-          <BigWord word="Let's"   delay={0} />
+          <BigWord word="Let's" delay={0} />
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: '0 0.28em' }}>
             <BigWord word="Connect" delay={0.1} />
             <div style={{ overflow: 'hidden', paddingBottom: '0.1em', marginBottom: '-0.1em' }}>

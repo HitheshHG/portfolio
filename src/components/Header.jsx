@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 const NAV = [
+  { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
-  { href: '#contact',  label: 'Contact'  },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -73,8 +74,8 @@ export default function Header() {
         >
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5">
             {menuOpen
-              ? <><line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/></>
-              : <><line x1="3" y1="7" x2="19" y2="7"/><line x1="3" y1="15" x2="19" y2="15"/></>
+              ? <><line x1="4" y1="4" x2="18" y2="18" /><line x1="18" y1="4" x2="4" y2="18" /></>
+              : <><line x1="3" y1="7" x2="19" y2="7" /><line x1="3" y1="15" x2="19" y2="15" /></>
             }
           </svg>
         </button>

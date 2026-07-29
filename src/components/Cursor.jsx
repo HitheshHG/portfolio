@@ -1,18 +1,18 @@
 import { useEffect, useRef } from 'react'
 
 export default function Cursor() {
-  const dotRef  = useRef(null)
+  const dotRef = useRef(null)
   const ringRef = useRef(null)
-  const mouse   = useRef({ x: -100, y: -100 })
-  const ring    = useRef({ x: -100, y: -100 })
-  const raf     = useRef(null)
-  const grown   = useRef(false)
+  const mouse = useRef({ x: -100, y: -100 })
+  const ring = useRef({ x: -100, y: -100 })
+  const raf = useRef(null)
+  const grown = useRef(false)
 
   useEffect(() => {
     // Don't run on touch-only devices
     if (window.matchMedia('(hover: none)').matches) return
 
-    const dot  = dotRef.current
+    const dot = dotRef.current
     const ring_ = ringRef.current
     if (!dot || !ring_) return
 

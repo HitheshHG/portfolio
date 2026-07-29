@@ -5,9 +5,9 @@ import { supabase } from './lib/supabase'
 /* ── single project row ── */
 function ProjectRow({ project, index }) {
   const [open, setOpen] = useState(false)
-  const ref    = useRef(null)
+  const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const num    = String(index + 1).padStart(2, '0')
+  const num = String(index + 1).padStart(2, '0')
 
   return (
     <motion.div
@@ -138,9 +138,9 @@ function LiveDot() {
 /* ── Projects section ── */
 export default function Projects() {
   const [projects, setProjects] = useState([])
-  const [error, setError]       = useState(null)
+  const [error, setError] = useState(null)
   const headerRef = useRef(null)
-  const inView    = useInView(headerRef, { once: true, margin: '-80px' })
+  const inView = useInView(headerRef, { once: true, margin: '-80px' })
 
   useEffect(() => {
     /* Initial fetch */
